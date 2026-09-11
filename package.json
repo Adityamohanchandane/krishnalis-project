@@ -1,0 +1,43 @@
+{
+  "name": "attendance-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@zxing/browser": "^0.2.1",
+    "@zxing/library": "^0.23.0",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
+    "firebase": "^12.19.0",
+    "firebase-admin": "^14.4.0",
+    "framer-motion": "^13.2.0",
+    "lucide-react": "^1.44.0",
+    "maath": "^0.10.8",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.186.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.185.4",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
