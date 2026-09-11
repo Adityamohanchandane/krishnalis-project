@@ -17,8 +17,8 @@ const missingKeys = Object.entries(firebaseConfig)
   .map(([key]) => key);
 
 if (missingKeys.length > 0) {
-  console.error('Missing Firebase config keys:', missingKeys);
-  throw new Error(`Missing Firebase configuration: ${missingKeys.join(', ')}`);
+  console.warn('Firebase config keys missing:', missingKeys);
+  // Don't throw error during build time
 }
 
 // Log configuration for debugging (remove in production)
@@ -26,9 +26,19 @@ if (typeof window !== 'undefined') {
   console.log('Firebase Config:', firebaseConfig);
 }
 
-// Initialize Firebase only if it hasn't been initialized already
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
-const db = getFirestore(app);
+// Initialize Firebase only if config is complete and hasn't been initialized already
+let app: any = null;
+let auth: any = null;
+let db: any = null;
+
+if (missingKeys.length === 0) {
+  try {
+    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+    auth = getAuth(app);
+    db = getFirestore(app);
+  } catch (error) {
+    console.error('Firebase initialization error:', error);
+  }
+}
 
 export { app, auth, db };

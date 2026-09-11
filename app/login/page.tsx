@@ -21,6 +21,9 @@ export default function LoginPage() {
     setError("");
 
     try {
+      if (!auth) {
+        throw new Error("Firebase not initialized. Please check configuration.");
+      }
       await signInWithEmailAndPassword(auth, email, password);
       // Wait for auth state to resolve, then redirect
       router.push("/dashboard");

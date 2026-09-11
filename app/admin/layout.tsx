@@ -85,7 +85,9 @@ export default function AdminLayout({
         <div className="p-4 border-t border-white/10">
           <button
             onClick={async () => {
-              await signOut(auth);
+              if (auth) {
+                await signOut(auth);
+              }
               router.push("/login");
             }}
             className="flex items-center gap-3 px-4 py-3 w-full rounded-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400 transition-colors"
